@@ -1,6 +1,5 @@
 
-export default {
-
+const myMath =  {
     circumference: (r) => {
         if(r < 0) {
             throw new Error("Error finding circumference, radius was less than 0.")
@@ -22,3 +21,4 @@ export default {
 }
 
 
+export default myMath

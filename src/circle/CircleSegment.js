@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css'
+import './styles/segment.css'
 
 const CircleSegment = (props) => {
     return (
@@ -7,7 +7,7 @@ const CircleSegment = (props) => {
             id={props.note + 'Segment'}
             className={'segment'}
             strokeDasharray={props.strokeDasharray}
-            transform={`rotate(${props.animatedRotation -105 + 30 * props.index}, 50, 50)`}
+            transform={`rotate(${props.animatedRotation -105 + 30 * props.index}, 100, 60)`}
         />
     );
 };

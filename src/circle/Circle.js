@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react' 
-import ReactDOM from 'react-dom'
-import mMath from './myMath'
-import './index.css'
+import mMath from '../libraries/myMath'
+import '../index.css'
 import CircleSegment from './CircleSegment'
 import NoteButton from './NoteButton'
+import border from './border_1.png'
 
 const Circle = () => {
     const [animatedRotation, setAnimatedRotation] = useState(0)
@@ -22,6 +22,7 @@ const Circle = () => {
 
         const startRotationAnimation = (mouseEvent) => {
             //Get the center of the circle everytime in case the screen size has changed
+            angle = 0
             const { width, height, left, top } = document.getElementById('background').getBoundingClientRect()
             svgCenter.x = left + width/2
             svgCenter.y = top + height/2
@@ -70,6 +71,8 @@ const Circle = () => {
 
         notes.forEach((note) => {
             document.getElementById(note + 'Segment').addEventListener('mousedown', startRotationAnimation)
+            document.getElementById(note + 'Button').addEventListener('mousedown', startRotationAnimation)
+            document.getElementById(note).addEventListener('mousedown', startRotationAnimation)
         })
         window.addEventListener('mouseup', saveRotation)
         window.addEventListener('mousemove', (event) => rotate(event))
@@ -77,6 +80,7 @@ const Circle = () => {
 
     const segments = notes.map((note, index) => (
         <CircleSegment
+            key={note}
             note={note}
             index={index}
             strokeDasharray={[`${dashLength}, ${dashLength*11}`]}
@@ -84,19 +88,27 @@ const Circle = () => {
         />
     ))
 
-    const noteButtons = notes.map((note, index) => {
+    const noteButtons = notes.map((note, index) => (
         <NoteButton
+            key={note}
             note={note}
             index={index}
             animatedRotation={animatedRotation}
         />
-    })
+    ))
 
     return(
         <div className={'container'}>
             <div>
-                <h1>{animatedRotation}</h1>
-                <svg id={'background'} viewBox={'0, 0 , 100, 100'}>
+                <svg id={'background'} viewBox={'0, 0 , 200, 120'}>
+                    <image 
+                        id={'modesBorder'}
+                        x={26}
+                        y={-14}
+                        height={151}
+                        width={151}
+                        href={border}
+                    />
                     {segments}
                     {noteButtons}
                 </svg>

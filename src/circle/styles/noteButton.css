@@ -1,0 +1,63 @@
+
+circle.noteCircle {
+    cx: 100;
+    cy: 60;
+    r: 7;
+    fill: red;
+    filter: drop-shadow(0 .1rem .02rem rgba(4, 4, 4, .1));
+}
+
+.noteLetter {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: .7em;
+    fill: white;
+    user-select: none;
+}
+
+#cButton {
+    fill: #ea6a6a;
+}
+
+#gButton {
+    fill: #e29661
+}
+
+#dButton {
+    fill: #e2d314
+}
+
+#aButton {
+    fill: #91ce41
+}
+
+#eButton {
+    fill: #5fe051
+}
+
+#bButton {
+    fill: #37c4a9
+}
+
+#fsButton {
+    fill: #3cd3d3
+}
+
+#dbButton {
+    fill: #3c9de5
+}
+
+#abButton {
+    fill: #4b4be2
+}
+
+#ebButton {
+    fill: #a655e5
+}
+
+#bbButton {
+    fill: #c84be2
+}
+
+#fButton {
+    fill: #e249a0
+}
