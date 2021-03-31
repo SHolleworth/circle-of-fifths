@@ -1,13 +1,77 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container div {
+    height: 75vh;
+    width: 75vh;
+}
+
+#background {
+    filter: drop-shadow(0 5px 5px lightgrey);
+}
+
+circle.segment {
+    cx: 50;
+    cy: 50;
+    r: 40;
+    fill: none;
+    stroke-width: 20%;
+}
+
+circle.noteCircle {
+    cx: 50;
+    cy: 50;
+    r: 10;
+    fill: red;
+}
+
+circle#cSegment {
+    stroke: #efb1b1;
+}
+
+circle#gSegment {
+    stroke: #edd8b2;
+}
+
+circle#dSegment {
+    stroke: #ecedb2;
+}
+
+circle#aSegment {
+    stroke: #d0edb2;
+}
+
+circle#eSegment {
+    stroke: #b7edb2;
+}
+
+circle#bSegment {
+    stroke: #b2ede3;
+}
+
+circle#fsSegment {
+    stroke: #b2e9ed;
+}
+
+circle#dbSegment {
+    stroke: #b2d1ed;
+}
+
+circle#abSegment {
+    stroke: #b2b2ed;
+}
+
+circle#ebSegment {
+    stroke: #d5b2ed;
+}
+
+circle#bbSegment {
+    stroke: #e5b2ed;
+}
+
+circle#fSegment {
+    stroke: #eab2d0;
 }
