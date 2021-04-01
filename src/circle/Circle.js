@@ -10,8 +10,8 @@ const Circle = () => {
     const [animatedRotation, setAnimatedRotation] = useState(0)
     const notes = ['c', 'g', 'd', 'a', 'e', 'b', 'fs', 'db', 'ab', 'eb', 'bb', 'f']
     const scaleDegreeNumerals = ['IV', 'I', 'V', 'ii', 'iv', 'iii', 'vii']
-    const r = 40
-    const dashLength = mMath.circumference(r)/12
+    const svgDimensions = { width: 100, height: 84, r: 30, cx:45, cy:42 }
+    const dashLength = mMath.circumference(svgDimensions.r)/12
 
     useEffect(() => {
         let moving = false
@@ -87,6 +87,7 @@ const Circle = () => {
             index={index}
             strokeDasharray={[`${dashLength + 0.05}, ${dashLength*11}`]}
             animatedRotation={animatedRotation}
+            svgDimensions={svgDimensions}
         />
     ))
 
@@ -96,6 +97,7 @@ const Circle = () => {
             note={note}
             index={index}
             animatedRotation={animatedRotation}
+            svgDimensions={svgDimensions}
         />
     ))
 
@@ -104,26 +106,25 @@ const Circle = () => {
             key={degree}
             degree={degree}
             index={index}
+            svgDimensions={svgDimensions}
         />
     ))
 
     return(
-        <div className={'container'}>
-            <div>
-                <svg id={'background'} viewBox={'0, 0 , 200, 120'}>
-                    <image 
-                        id={'modesBorder'}
-                        x={42.7}
-                        y={-5}
-                        height={130}
-                        width={130}
-                        href={border}
-                    />
-                    {segments}
-                    {noteButtons}
-                    {scaleDegrees}
-                </svg>
-            </div>
+        <div>
+            <svg id={'background'} viewBox={`0, 0 , ${svgDimensions.width}, ${svgDimensions.height}`}>
+                <image 
+                    id={'modesBorder'}
+                    x={3}
+                    y={-5}
+                    height={95}
+                    width={95}
+                    href={border}
+                />
+                {segments}
+                {noteButtons}
+                {scaleDegrees}
+            </svg>
         </div>
     )
 }

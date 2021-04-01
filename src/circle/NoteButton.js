@@ -14,23 +14,29 @@ import b from '../assets/SVG/b.svg'
 import bb from '../assets/SVG/bb.svg'
 
 const NoteButton = (props) => {
+    const{ cx, cy, r } = props.svgDimensions
+
     const icons = [c, g, d, a, e, b, fs, db, ab, eb, bb, f]
 
     return (
         <g 
             transform={
-            `rotate(${props.animatedRotation + 30 * props.index} 100 60)
-            translate(0 -40)
-            rotate(${-props.animatedRotation - 30 * props.index} 100 60)`}
+            `rotate(${props.animatedRotation + 30 * props.index} ${cx} ${(cy)})
+            translate(0 -${r})
+            rotate(${-props.animatedRotation - 30 * props.index}  ${cx} ${(cy)})`}
         >
-            <circle id={props.note + 'Button'} className={'noteCircle'}/>
+            <circle 
+                id={props.note + 'Button'} className={'noteCircle'}
+                cx={cx} cy={cy}
+            />
+
             <image
                 id={props.note}
                 href={icons[props.index]} 
-                x={96.1}
-                y={56}
-                height={8}
-                width={8}
+                x={cx-3}
+                y={cy-3}
+                height={6}
+                width={6}
             />
         </g>
     );

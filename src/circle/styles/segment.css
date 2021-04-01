@@ -1,9 +1,6 @@
 circle.segment {
-    cx: 100;
-    cy: 60;
-    r: 40;
     fill: none;
-    stroke-width: 12%;
+    stroke-width: 15%;
 }
 
 circle#cSegment {

@@ -9,6 +9,9 @@ import vi from '../assets/SVG/vi.svg'
 import vii from '../assets/SVG/vii.svg'
 
 const ScaleDegree = (props) => {
+
+    const { cx, cy } = props.svgDimensions
+
     const colors = {
         major: '#ea5e5e',
         minor: '#13707f',
@@ -31,19 +34,21 @@ const ScaleDegree = (props) => {
 
     return (
         <g  transform={`
-            rotate(${180 + (props.index - 1) * +30} 100 60)
-            translate(0 28)
-            rotate(${(props.index - 1) * - 30} 100 60)
+            rotate(${180 + (props.index - 1) * +30} ${cx} ${cy})
+            translate(0 22)
+            rotate(${(props.index - 1) * - 30} ${cx} ${cy})
             `}
         >
             <circle
+                cx={(cx)}
+                cy={(cy)}
                 className={'scaleDegreeCircle'}
                 fill={fillColor}
             />
             <image href={icons[props.index]} className={'degreeIcon'} 
-                x={97.5} y={57.5}
-                height={5} width={5}
-                transform={'rotate(180 100 60)'}
+                x={(cx)-1.9} y={(cy)-1.9}
+                height={4} width={4}
+                transform={`rotate(180 ${cx} ${cy})`}
             />
         </g>
     );

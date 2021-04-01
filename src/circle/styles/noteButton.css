@@ -1,8 +1,6 @@
 
 circle.noteCircle {
-    cx: 100;
-    cy: 60;
-    r: 7;
+    r: 4.5;
     fill: red;
     /*filter: drop-shadow(0 .1rem .02rem rgba(4, 4, 4, .1));*/
 }
