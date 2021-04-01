@@ -3,11 +3,13 @@ import mMath from '../libraries/myMath'
 import '../index.css'
 import CircleSegment from './CircleSegment'
 import NoteButton from './NoteButton'
-import border from './border_1.png'
+import border from '../assets/SVG/border.svg'
+import ScaleDegree from './ScaleDegree'
 
 const Circle = () => {
     const [animatedRotation, setAnimatedRotation] = useState(0)
     const notes = ['c', 'g', 'd', 'a', 'e', 'b', 'fs', 'db', 'ab', 'eb', 'bb', 'f']
+    const scaleDegreeNumerals = ['IV', 'I', 'V', 'ii', 'iv', 'iii', 'vii']
     const r = 40
     const dashLength = mMath.circumference(r)/12
 
@@ -83,7 +85,7 @@ const Circle = () => {
             key={note}
             note={note}
             index={index}
-            strokeDasharray={[`${dashLength}, ${dashLength*11}`]}
+            strokeDasharray={[`${dashLength + 0.05}, ${dashLength*11}`]}
             animatedRotation={animatedRotation}
         />
     ))
@@ -97,20 +99,29 @@ const Circle = () => {
         />
     ))
 
+    const scaleDegrees = scaleDegreeNumerals.map((degree, index) => (
+        <ScaleDegree 
+            key={degree}
+            degree={degree}
+            index={index}
+        />
+    ))
+
     return(
         <div className={'container'}>
             <div>
                 <svg id={'background'} viewBox={'0, 0 , 200, 120'}>
                     <image 
                         id={'modesBorder'}
-                        x={26}
-                        y={-14}
-                        height={151}
-                        width={151}
+                        x={42.7}
+                        y={-5}
+                        height={130}
+                        width={130}
                         href={border}
                     />
                     {segments}
                     {noteButtons}
+                    {scaleDegrees}
                 </svg>
             </div>
         </div>

@@ -4,14 +4,7 @@ circle.noteCircle {
     cy: 60;
     r: 7;
     fill: red;
-    filter: drop-shadow(0 .1rem .02rem rgba(4, 4, 4, .1));
-}
-
-.noteLetter {
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: .7em;
-    fill: white;
-    user-select: none;
+    /*filter: drop-shadow(0 .1rem .02rem rgba(4, 4, 4, .1));*/
 }
 
 #cButton {

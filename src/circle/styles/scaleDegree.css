@@ -1,0 +1,10 @@
+.scaleDegreeCircle {
+    cx: 100;
+    cy: 60;
+    r: 3.5;
+}
+
+.degreeIcon {
+    height: 10;
+    width: 10;
+}
