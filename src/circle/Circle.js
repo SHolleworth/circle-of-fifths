@@ -78,6 +78,14 @@ const Circle = () => {
         })
         window.addEventListener('mouseup', saveRotation)
         window.addEventListener('mousemove', (event) => rotate(event))
+
+        notes.forEach((note) => {
+            document.getElementById(note + 'Segment').addEventListener('touchstart', startRotationAnimation)
+            document.getElementById(note + 'Button').addEventListener('touchstart', startRotationAnimation)
+            document.getElementById(note).addEventListener('touchstart', startRotationAnimation)
+        })
+        window.addEventListener('touchend', saveRotation)
+        window.addEventListener('touchmove', (event) => rotate(event))
     },[])
 
     const segments = notes.map((note, index) => (
