@@ -22,7 +22,11 @@ const Circle = () => {
         const mouseDownPosition = { x: 0, y: 0 }
         const mouseDownNormal = { x: 0, y: 0 }
 
-        const startRotationAnimation = (mouseEvent) => {
+        const startRotationAnimation = (event) => {
+            let mouseEvent = event
+            if(event instanceof TouchEvent) {
+                mouseEvent = event.touches[0]
+            }
             //Get the center of the circle everytime in case the screen size has changed
             angle = 0
             const { width, height, left, top } = document.getElementById('background').getBoundingClientRect()
@@ -33,9 +37,14 @@ const Circle = () => {
             mouseDownNormal.x = mouseDownPosition.y
             mouseDownNormal.y = -mouseDownPosition.x
             moving = true
+            console.log("Started")
         }
 
-        const rotate = (mouseEvent) => {
+        const rotate = (event) => {
+            let mouseEvent = event
+            if(event instanceof TouchEvent) {
+                mouseEvent = event.touches[0]
+            }
             if(moving) {
                 const mousePosition = { x: mouseEvent.clientX - svgCenter.x, y: mouseEvent.clientY - svgCenter.y}
                 angle = mMath.angleBetween(mousePosition, mouseDownPosition)
@@ -48,6 +57,7 @@ const Circle = () => {
                 }
             }
         }
+        
 
         const saveRotation = () => {
             if(moving) {
@@ -75,15 +85,12 @@ const Circle = () => {
             document.getElementById(note + 'Segment').addEventListener('mousedown', startRotationAnimation)
             document.getElementById(note + 'Button').addEventListener('mousedown', startRotationAnimation)
             document.getElementById(note).addEventListener('mousedown', startRotationAnimation)
-        })
-        window.addEventListener('mouseup', saveRotation)
-        window.addEventListener('mousemove', (event) => rotate(event))
-
-        notes.forEach((note) => {
             document.getElementById(note + 'Segment').addEventListener('touchstart', startRotationAnimation)
             document.getElementById(note + 'Button').addEventListener('touchstart', startRotationAnimation)
             document.getElementById(note).addEventListener('touchstart', startRotationAnimation)
         })
+        window.addEventListener('mouseup', saveRotation)
+        window.addEventListener('mousemove', (event) => rotate(event))
         window.addEventListener('touchend', saveRotation)
         window.addEventListener('touchmove', (event) => rotate(event))
     },[])
