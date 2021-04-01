@@ -1,0 +1,52 @@
+circle.segment {
+    fill: none;
+    stroke-width: 15%;
+}
+
+circle#cSegment {
+    stroke: #efb1b1;
+}
+
+circle#gSegment {
+    stroke: #edd8b2;
+}
+
+circle#dSegment {
+    stroke: #ecedb2;
+}
+
+circle#aSegment {
+    stroke: #d0edb2;
+}
+
+circle#eSegment {
+    stroke: #b7edb2;
+}
+
+circle#bSegment {
+    stroke: #b2ede3;
+}
+
+circle#fsSegment {
+    stroke: #b2e9ed;
+}
+
+circle#dbSegment {
+    stroke: #b2d1ed;
+}
+
+circle#abSegment {
+    stroke: #b2b2ed;
+}
+
+circle#ebSegment {
+    stroke: #d5b2ed;
+}
+
+circle#bbSegment {
+    stroke: #e5b2ed;
+}
+
+circle#fSegment {
+    stroke: #eab2d0;
+}
