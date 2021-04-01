@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles/scaleDegree.css';
 import i from '../assets/SVG/i.svg'
 import ii from '../assets/SVG/ii.svg'
 import iii from '../assets/SVG/iii.svg'
@@ -35,13 +34,14 @@ const ScaleDegree = (props) => {
     return (
         <g  transform={`
             rotate(${180 + (props.index - 1) * +30} ${cx} ${cy})
-            translate(0 22)
+            translate(0 21)
             rotate(${(props.index - 1) * - 30} ${cx} ${cy})
             `}
         >
             <circle
-                cx={(cx)}
-                cy={(cy)}
+                cx={cx}
+                cy={cy}
+                r={2.7}
                 className={'scaleDegreeCircle'}
                 fill={fillColor}
             />

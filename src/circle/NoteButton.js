@@ -28,6 +28,7 @@ const NoteButton = (props) => {
             <circle 
                 id={props.note + 'Button'} className={'noteCircle'}
                 cx={cx} cy={cy}
+                r={5.5}
             />
 
             <image

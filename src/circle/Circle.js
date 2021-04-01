@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react' 
 import mMath from '../libraries/myMath'
-import '../index.css'
+import '../app.css'
 import CircleSegment from './CircleSegment'
 import NoteButton from './NoteButton'
 import border from '../assets/SVG/border.svg'
@@ -24,7 +24,7 @@ const Circle = () => {
 
         const startRotationAnimation = (event) => {
             let mouseEvent = event
-            if(event instanceof TouchEvent) {
+            if(window.TouchEvent && event instanceof TouchEvent) {
                 mouseEvent = event.touches[0]
             }
             //Get the center of the circle everytime in case the screen size has changed
@@ -41,11 +41,12 @@ const Circle = () => {
         }
 
         const rotate = (event) => {
-            let mouseEvent = event
-            if(event instanceof TouchEvent) {
-                mouseEvent = event.touches[0]
-            }
             if(moving) {
+                event.preventDefault()
+                let mouseEvent = event
+                if(window.TouchEvent && event instanceof TouchEvent) {
+                    mouseEvent = event.touches[0]
+                }
                 const mousePosition = { x: mouseEvent.clientX - svgCenter.x, y: mouseEvent.clientY - svgCenter.y}
                 angle = mMath.angleBetween(mousePosition, mouseDownPosition)
                 dotProduct = mMath.dot(mouseDownNormal, mousePosition)
@@ -93,6 +94,7 @@ const Circle = () => {
         window.addEventListener('mousemove', (event) => rotate(event))
         window.addEventListener('touchend', saveRotation)
         window.addEventListener('touchmove', (event) => rotate(event))
+        // eslint-disable-next-line
     },[])
 
     const segments = notes.map((note, index) => (
